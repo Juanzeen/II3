@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <title>Cadastros Salvos</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+  <%- include ("cabecalho")%>
+<%if (typeof(cadastros) == 'undefined' || cadastros.lenght == 0 ) {%>
+<h2>Não há cadastros salvos no momento!</h2>
+<%console.log('Sem dados na array')%>
+<%} else {%>
+<h1>Cadastros Salvos: </h1>
+    <% cadastros.forEach(cadastro => {%>
+      <a href="/editar?nome=<%=cadastro%>"><%=cadastro.split(".txt")[0]%></a> 
+      <a href="/apagar?nome=<%=cadastro%>"><img src="excluir.png" height="15px" width="15px" alt=""></a>
+      <br>
+    <%})%>
+<%}%>
+  <%- include ("rodape")%>
+</body>
+</html>
